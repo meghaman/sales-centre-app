@@ -1,7 +1,14 @@
 # Sales Centre PWA
 
-Progressive web application for the Sales Centre.
+Showroom kiosk for Arden floor plans (landscape tablet).
 
-## Getting started
+## Local dev
 
-Project setup is in progress. More documentation will be added as the application is built.
+```bash
+npm install
+npm run dev
+```
+
+## Deploy
+
+Pushes to `master` deploy via Vercel: https://sales-centre-app.vercel.app/
