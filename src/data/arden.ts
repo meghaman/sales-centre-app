@@ -18,7 +18,7 @@ export const ardenUnits: Unit[] = [
       {
         id: 'r1-main',
         label: 'Main Level',
-        imageUrl: '/plans/arden/r1-main.svg',
+        imageUrl: '/plans/arden/floor_plan.png',
       },
       {
         id: 'r1-office',

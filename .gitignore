@@ -20,6 +20,7 @@ npm-debug.log*
 # OS / editor
 .DS_Store
 Thumbs.db
+*:Zone.Identifier
 .idea/
 .vscode/*
 !.vscode/extensions.json
