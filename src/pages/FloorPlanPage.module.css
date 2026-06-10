@@ -1,0 +1,39 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-bg);
+}
+
+.viewerRegion {
+  flex: 7;
+  min-height: 0;
+  position: relative;
+}
+
+.panelRegion {
+  flex: 3;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  border-top: var(--divider-height) solid var(--color-divider);
+  box-shadow: 0 -24px 48px rgba(242, 238, 232, 0.95);
+}
+
+.panelInner {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl) var(--space-xl);
+  overflow: hidden;
+}
+
+@media (orientation: landscape) and (min-width: 900px) {
+  .panelInner {
+    padding-inline: 4rem;
+    gap: 4rem;
+  }
+}

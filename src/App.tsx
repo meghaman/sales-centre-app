@@ -1,3 +1,5 @@
+import { FloorPlanPage } from './pages/FloorPlanPage';
+
 export default function App() {
-  return <p>Hello World</p>;
+  return <FloorPlanPage />;
 }
