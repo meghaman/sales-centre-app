@@ -1,0 +1,35 @@
+:root {
+  /* Maywood screenshot palette */
+  --color-bg: #f2eee8;
+  --color-surface: #ffffff;
+  --color-text: #1c1c1c;
+  --color-text-muted: #5c5c5c;
+  --color-accent: #8b7355;
+  --color-accent-hover: #756045;
+  --color-accent-text: #ffffff;
+  --color-border: #d4ccc2;
+  --color-divider: #8b7355;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --letter-spacing-label: 0.12em;
+  --font-size-label: 0.75rem;
+  --font-size-body: 1rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Controls */
+  --button-radius: 999px;
+  --button-min-height: 48px;
+  --button-padding-x: 1.75rem;
+  --divider-width: 3rem;
+  --divider-height: 1px;
+}
