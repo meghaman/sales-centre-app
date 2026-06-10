@@ -1,4 +1,4 @@
-# Sales Centre PWS
+# Sales Centre PWA
 
 Progressive web application for the Sales Centre.
 
