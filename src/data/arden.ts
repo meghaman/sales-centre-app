@@ -90,7 +90,13 @@ export const ardenModel = {
 
 export const ardenUnits = ardenModel.units;
 
-export const defaultLevelId = ardenModel.units[0].levels[0].id;
+function getFirstUnitMainLevelId(units: Unit[]): string {
+  const firstUnit = units[0];
+  const mainLevel = firstUnit.levels.find((level) => level.label === 'Main Level');
+  return mainLevel?.id ?? firstUnit.levels[0].id;
+}
+
+export const defaultLevelId = getFirstUnitMainLevelId(ardenModel.units);
 
 export function findLevel(id: string): FloorLevel | undefined {
   for (const unit of ardenModel.units) {

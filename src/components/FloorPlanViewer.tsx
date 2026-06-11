@@ -4,10 +4,11 @@ import styles from './FloorPlanViewer.module.css';
 type FloorPlanViewerProps = {
   imageUrl: string;
   alt: string;
+  resetKey?: number;
 };
 
-export function FloorPlanViewer({ imageUrl, alt }: FloorPlanViewerProps) {
-  const { transform, onTouchStart, onTouchMove, onTouchEnd } = usePinchZoom(imageUrl);
+export function FloorPlanViewer({ imageUrl, alt, resetKey = 0 }: FloorPlanViewerProps) {
+  const { transform, onTouchStart, onTouchMove, onTouchEnd } = usePinchZoom(`${imageUrl}:${resetKey}`);
 
   return (
     <section className={styles.viewer} aria-label="Floor plan">
