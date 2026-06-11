@@ -22,6 +22,7 @@
   font-style: normal;
   line-height: 1.2;
   color: var(--color-text-heading);
+  pointer-events: none;
 }
 
 .imageWrap {
@@ -33,26 +34,15 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  touch-action: none;
 }
 
-.imageButton {
-  border: none;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  min-width: 0;
+.zoomSurface {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-
-.imageButton:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .image {
@@ -63,4 +53,6 @@
   object-fit: contain;
   background: var(--color-surface);
   box-shadow: 0 8px 32px rgba(28, 28, 28, 0.08);
+  user-select: none;
+  -webkit-user-drag: none;
 }

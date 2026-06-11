@@ -1,30 +1,33 @@
+import { usePinchZoom } from '../hooks/usePinchZoom';
 import styles from './FloorPlanViewer.module.css';
 
 type FloorPlanViewerProps = {
   modelName: string;
   imageUrl: string;
   alt: string;
-  onImageClick: () => void;
 };
 
-export function FloorPlanViewer({
-  modelName,
-  imageUrl,
-  alt,
-  onImageClick,
-}: FloorPlanViewerProps) {
+export function FloorPlanViewer({ modelName, imageUrl, alt }: FloorPlanViewerProps) {
+  const { transform, onTouchStart, onTouchMove, onTouchEnd } = usePinchZoom(imageUrl);
+
   return (
     <section className={styles.viewer} aria-label="Floor plan">
       <h1 className={styles.modelName}>{modelName}</h1>
-      <div className={styles.imageWrap}>
-        <button
-          type="button"
-          className={styles.imageButton}
-          aria-label={`View ${alt} full screen`}
-          onClick={onImageClick}
+      <div
+        className={styles.imageWrap}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onTouchCancel={onTouchEnd}
+      >
+        <div
+          className={styles.zoomSurface}
+          style={{
+            transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
+          }}
         >
-          <img className={styles.image} src={imageUrl} alt={alt} />
-        </button>
+          <img className={styles.image} src={imageUrl} alt={alt} draggable={false} />
+        </div>
       </div>
     </section>
   );
