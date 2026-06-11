@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 import styles from './FloorPlanLightbox.module.css';
 
 type FloorPlanLightboxProps = {
@@ -36,7 +37,25 @@ export function FloorPlanLightbox({ imageUrl, alt, onClose }: FloorPlanLightboxP
         >
           ×
         </button>
-        <img className={styles.image} src={imageUrl} alt={alt} />
+        <TransformWrapper
+          key={imageUrl}
+          initialScale={1}
+          minScale={1}
+          maxScale={4}
+          centerOnInit
+          centerZoomedOut
+          limitToBounds
+          doubleClick={{ mode: 'toggle', step: 0.75 }}
+          panning={{ velocityDisabled: true }}
+          wheel={{ disabled: true }}
+        >
+          <TransformComponent
+            wrapperClass={styles.zoomWrapper}
+            contentClass={styles.zoomContent}
+          >
+            <img className={styles.image} src={imageUrl} alt={alt} draggable={false} />
+          </TransformComponent>
+        </TransformWrapper>
       </div>
     </div>
   );
