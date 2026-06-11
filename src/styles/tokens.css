@@ -32,4 +32,7 @@
   --button-padding-x: 1.75rem;
   --divider-width: 3rem;
   --divider-height: 1px;
+
+  /* Overlay */
+  --color-overlay: rgba(28, 28, 28, 0.55);
 }

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { ardenUnits, defaultLevelId, findLevel } from '../data/arden';
+import { FloorPlanLightbox } from '../components/FloorPlanLightbox';
 import { FloorPlanViewer } from '../components/FloorPlanViewer';
 import { UnitButtonPanel } from '../components/UnitButtonPanel';
 import styles from './FloorPlanPage.module.css';
 
 export function FloorPlanPage() {
   const [selectedLevelId, setSelectedLevelId] = useState(defaultLevelId);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const selectedLevel = findLevel(selectedLevelId) ?? findLevel(defaultLevelId)!;
 
   return (
@@ -14,6 +16,7 @@ export function FloorPlanPage() {
         <FloorPlanViewer
           imageUrl={selectedLevel.imageUrl}
           alt={selectedLevel.label}
+          onImageClick={() => setIsFullscreen(true)}
         />
       </div>
       <div className={styles.panelRegion}>
@@ -28,6 +31,13 @@ export function FloorPlanPage() {
           ))}
         </div>
       </div>
+      {isFullscreen && (
+        <FloorPlanLightbox
+          imageUrl={selectedLevel.imageUrl}
+          alt={selectedLevel.label}
+          onClose={() => setIsFullscreen(false)}
+        />
+      )}
     </main>
   );
 }
