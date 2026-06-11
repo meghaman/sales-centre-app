@@ -10,6 +10,8 @@ export type Unit = {
   levels: FloorLevel[];
 };
 
+export const ardenModelName = 'Arden';
+
 export const ardenUnits: Unit[] = [
   {
     id: 'residence-1',

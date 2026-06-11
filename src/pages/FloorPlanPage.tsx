@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ardenUnits, defaultLevelId, findLevel } from '../data/arden';
+import { ardenModelName, ardenUnits, defaultLevelId, findLevel } from '../data/arden';
 import { FloorPlanLightbox } from '../components/FloorPlanLightbox';
 import { FloorPlanViewer } from '../components/FloorPlanViewer';
 import { UnitButtonPanel } from '../components/UnitButtonPanel';
@@ -14,6 +14,7 @@ export function FloorPlanPage() {
     <main className={styles.page}>
       <div className={styles.viewerRegion}>
         <FloorPlanViewer
+          modelName={ardenModelName}
           imageUrl={selectedLevel.imageUrl}
           alt={selectedLevel.label}
           onImageClick={() => setIsFullscreen(true)}
