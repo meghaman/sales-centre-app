@@ -50,13 +50,3 @@
   background: var(--color-surface);
   box-shadow: 0 8px 32px rgba(28, 28, 28, 0.08);
 }
-
-.fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 4rem;
-  background: linear-gradient(to bottom, transparent, var(--color-bg));
-  pointer-events: none;
-}

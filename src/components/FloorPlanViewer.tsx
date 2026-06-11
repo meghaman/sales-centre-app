@@ -18,7 +18,6 @@ export function FloorPlanViewer({ imageUrl, alt, onImageClick }: FloorPlanViewer
         >
           <img className={styles.image} src={imageUrl} alt={alt} />
         </button>
-        <div className={styles.fade} aria-hidden="true" />
       </div>
     </section>
   );

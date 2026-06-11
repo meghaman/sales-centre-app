@@ -30,6 +30,21 @@ export const ardenUnits: Unit[] = [
         label: 'Entry Level (Tandem Garage)',
         imageUrl: '/plans/arden/r1-tandem.svg',
       },
+      {
+        id: 'r1-lower',
+        label: 'Lower Level',
+        imageUrl: '/plans/arden/r1-lower.svg',
+      },
+      {
+        id: 'r1-upper',
+        label: 'Upper Level',
+        imageUrl: '/plans/arden/r1-upper.svg',
+      },
+      {
+        id: 'r1-garage',
+        label: 'Garage Level',
+        imageUrl: '/plans/arden/r1-garage.svg',
+      },
     ],
   },
   {
@@ -50,6 +65,21 @@ export const ardenUnits: Unit[] = [
         id: 'r2-rec',
         label: 'Entry Level (Rec Rm)',
         imageUrl: '/plans/arden/r2-rec.svg',
+      },
+      {
+        id: 'r2-main',
+        label: 'Main Level',
+        imageUrl: '/plans/arden/r2-main.svg',
+      },
+      {
+        id: 'r2-lower',
+        label: 'Lower Level',
+        imageUrl: '/plans/arden/r2-lower.svg',
+      },
+      {
+        id: 'r2-garage',
+        label: 'Garage Level',
+        imageUrl: '/plans/arden/r2-garage.svg',
       },
     ],
   },
