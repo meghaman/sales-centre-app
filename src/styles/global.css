@@ -29,6 +29,12 @@ body {
 button {
   font: inherit;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+button:focus {
+  outline: none;
 }
 
 img {
