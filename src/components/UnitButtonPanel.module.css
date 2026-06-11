@@ -8,12 +8,12 @@
 
 .unitLabel {
   margin: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-label);
   font-size: var(--font-size-label);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: var(--letter-spacing-label);
   text-transform: uppercase;
-  color: var(--color-text);
+  color: var(--color-text-heading);
   text-align: center;
 }
 
@@ -24,15 +24,15 @@
 }
 
 .button {
-  min-height: var(--button-min-height);
-  padding: 0.75rem var(--button-padding-x);
+  padding: var(--button-padding-y) var(--button-padding-x);
   border-radius: var(--button-radius);
   border: 1px solid var(--color-accent);
   background: transparent;
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
+  color: var(--color-accent);
+  font-family: var(--font-button);
+  font-size: var(--font-size-button);
+  font-weight: 400;
+  text-transform: uppercase;
   text-align: center;
   transition: background 0.15s ease, color 0.15s ease;
 }
@@ -44,11 +44,13 @@
 }
 
 .button:not(.buttonActive):hover {
-  background: rgba(139, 115, 85, 0.12);
+  background: var(--color-bg);
+  color: var(--color-accent);
 }
 
 .buttonActive:hover {
-  background: var(--color-accent-hover);
+  background: var(--color-bg);
+  color: var(--color-accent);
 }
 
 .button:focus-visible {

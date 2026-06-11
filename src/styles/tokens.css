@@ -1,23 +1,26 @@
 :root {
-  /* Maywood screenshot palette */
-  --color-bg: #f2eee8;
+  /* Maywood site palette (astra-child theme) */
+  --color-bg: #eeebe3;
   --color-surface: #ffffff;
-  --color-text: #1c1c1c;
-  --color-text-muted: #5c5c5c;
-  --color-accent: #8b7355;
+  --color-text: #6a6a6a;
+  --color-text-heading: #454f54;
+  --color-text-muted: #6a6a6a;
+  --color-accent: #8a615b;
   --color-accent-hover: #756045;
   --color-accent-text: #ffffff;
   --color-border: #d4ccc2;
-  --color-divider: #8b7355;
+  --color-divider: #8a615b;
 
-  /* Typography */
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Montserrat', 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  /* Maywood Typekit fonts (kit ehg5xdy) */
+  --font-body: 'archivo', sans-serif;
+  --font-heading: 'ivyora-display', serif;
+  --font-button: 'bellefair', sans-serif;
+  --font-label: 'archivo', sans-serif;
 
   --letter-spacing-label: 0.12em;
   --font-size-label: 0.75rem;
   --font-size-body: 1rem;
+  --font-size-button: 17px;
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -26,10 +29,11 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
 
-  /* Controls */
-  --button-radius: 999px;
-  --button-min-height: 48px;
-  --button-padding-x: 1.75rem;
+  /* Controls — matches .brown-btn */
+  --button-radius: 29px;
+  --button-min-height: auto;
+  --button-padding-y: 9px;
+  --button-padding-x: 20px;
   --divider-width: 3rem;
   --divider-height: 1px;
 
