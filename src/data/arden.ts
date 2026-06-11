@@ -10,9 +10,9 @@ export type Unit = {
   levels: FloorLevel[];
 };
 
-export const ardenModelName = 'Arden';
-
-export const ardenUnits: Unit[] = [
+export const ardenModel = {
+  name: 'Arden',
+  units: [
   {
     id: 'residence-1',
     label: 'Residence 1',
@@ -85,12 +85,15 @@ export const ardenUnits: Unit[] = [
       },
     ],
   },
-];
+] as Unit[],
+};
 
-export const defaultLevelId = ardenUnits[0].levels[0].id;
+export const ardenUnits = ardenModel.units;
+
+export const defaultLevelId = ardenModel.units[0].levels[0].id;
 
 export function findLevel(id: string): FloorLevel | undefined {
-  for (const unit of ardenUnits) {
+  for (const unit of ardenModel.units) {
     const level = unit.levels.find((entry) => entry.id === id);
     if (level) {
       return level;
