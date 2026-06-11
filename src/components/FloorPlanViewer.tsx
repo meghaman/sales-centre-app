@@ -2,17 +2,15 @@ import { usePinchZoom } from '../hooks/usePinchZoom';
 import styles from './FloorPlanViewer.module.css';
 
 type FloorPlanViewerProps = {
-  modelName: string;
   imageUrl: string;
   alt: string;
 };
 
-export function FloorPlanViewer({ modelName, imageUrl, alt }: FloorPlanViewerProps) {
+export function FloorPlanViewer({ imageUrl, alt }: FloorPlanViewerProps) {
   const { transform, onTouchStart, onTouchMove, onTouchEnd } = usePinchZoom(imageUrl);
 
   return (
     <section className={styles.viewer} aria-label="Floor plan">
-      <h1 className={styles.modelName}>{modelName}</h1>
       <div
         className={styles.imageWrap}
         onTouchStart={onTouchStart}

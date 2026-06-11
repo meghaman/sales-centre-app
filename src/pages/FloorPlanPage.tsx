@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ardenModel, ardenUnits, defaultLevelId, findLevel } from '../data/arden';
+import { ardenUnits, defaultLevelId, findLevel } from '../data/arden';
 import { FloorPlanViewer } from '../components/FloorPlanViewer';
 import { UnitButtonPanel } from '../components/UnitButtonPanel';
 import styles from './FloorPlanPage.module.css';
@@ -12,7 +12,6 @@ export function FloorPlanPage() {
     <main className={styles.page}>
       <div className={styles.viewerRegion}>
         <FloorPlanViewer
-          modelName={ardenModel.name}
           imageUrl={selectedLevel.imageUrl}
           alt={selectedLevel.label}
         />
