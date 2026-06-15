@@ -20,7 +20,7 @@ export const ardenModel = {
       {
         id: 'r1-main',
         label: 'Main Level',
-        imageUrl: '/plans/arden/floor_plan.png',
+        imageUrl: '/plans/arden/unit-1-upper-level.svg',
       },
       {
         id: 'r1-office',
@@ -40,7 +40,7 @@ export const ardenModel = {
       {
         id: 'r1-upper',
         label: 'Upper Level',
-        imageUrl: 'https://placehold.co/800x800?text=Upper+Level',
+        imageUrl: '/plans/arden/unit-1-upper-level.svg',
       },
       {
         id: 'r1-garage',
