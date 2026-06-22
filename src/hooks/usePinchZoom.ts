@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type TouchEvent as ReactTouchEvent } from 'react';
+import { useEffect, useRef, useState, type RefObject, type TouchEvent as ReactTouchEvent } from 'react';
 
 type Transform = {
   scale: number;
@@ -13,7 +13,7 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
-function getTouchDistance(touches: React.TouchList) {
+function getTouchDistance(touches: React.TouchList | TouchList) {
   if (touches.length < 2) {
     return 0;
   }
@@ -24,6 +24,7 @@ function getTouchDistance(touches: React.TouchList) {
 }
 
 export function usePinchZoom(resetKey: string) {
+  const wrapRef = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState<Transform>({ scale: 1, x: 0, y: 0 });
   const transformRef = useRef(transform);
   transformRef.current = transform;
@@ -39,7 +40,24 @@ export function usePinchZoom(resetKey: string) {
 
   useEffect(() => {
     setTransform({ scale: 1, x: 0, y: 0 });
+    gesture.current.mode = 'none';
   }, [resetKey]);
+
+  useEffect(() => {
+    const element = wrapRef.current;
+    if (!element) {
+      return;
+    }
+
+    const blockBrowserGesture = (event: TouchEvent) => {
+      if (gesture.current.mode === 'pinch' || gesture.current.mode === 'pan') {
+        event.preventDefault();
+      }
+    };
+
+    element.addEventListener('touchmove', blockBrowserGesture, { passive: false });
+    return () => element.removeEventListener('touchmove', blockBrowserGesture);
+  }, []);
 
   const onTouchStart = (event: ReactTouchEvent) => {
     const current = transformRef.current;
@@ -103,7 +121,24 @@ export function usePinchZoom(resetKey: string) {
     }
   };
 
-  const onTouchEnd = () => {
+  const onTouchEnd = (event: ReactTouchEvent) => {
+    if (event.touches.length >= 2) {
+      return;
+    }
+
+    if (event.touches.length === 1 && gesture.current.mode === 'pinch') {
+      const touch = event.touches[0];
+      gesture.current = {
+        mode: 'pan',
+        startDistance: 0,
+        startScale: transformRef.current.scale,
+        startX: transformRef.current.x,
+        startY: transformRef.current.y,
+        startPoint: { x: touch.clientX, y: touch.clientY },
+      };
+      return;
+    }
+
     gesture.current.mode = 'none';
     setTransform((current) => {
       if (current.scale <= 1.01) {
@@ -113,5 +148,11 @@ export function usePinchZoom(resetKey: string) {
     });
   };
 
-  return { transform, onTouchStart, onTouchMove, onTouchEnd };
+  return {
+    transform,
+    wrapRef: wrapRef as RefObject<HTMLDivElement>,
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd,
+  };
 }

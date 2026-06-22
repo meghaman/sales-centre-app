@@ -15,11 +15,12 @@ export function FloorPlanViewer({
   inlineSvg = false,
   resetKey = 0,
 }: FloorPlanViewerProps) {
-  const { transform, onTouchStart, onTouchMove, onTouchEnd } = usePinchZoom(`${imageUrl}:${resetKey}`);
+  const { transform, wrapRef, onTouchStart, onTouchMove, onTouchEnd } = usePinchZoom(`${imageUrl}:${resetKey}`);
 
   return (
     <section className={styles.viewer} aria-label="Floor plan">
       <div
+        ref={wrapRef}
         className={styles.imageWrap}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
