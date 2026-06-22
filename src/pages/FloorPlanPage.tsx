@@ -20,6 +20,7 @@ export function FloorPlanPage() {
       <div className={styles.viewerRegion}>
         <FloorPlanViewer
           imageUrl={selectedLevel.imageUrl}
+          inlineSvg={selectedLevel.inlineSvg}
           alt={selectedLevel.label}
           resetKey={viewerResetKey}
         />

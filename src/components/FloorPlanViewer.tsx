@@ -5,10 +5,16 @@ import styles from './FloorPlanViewer.module.css';
 type FloorPlanViewerProps = {
   imageUrl: string;
   alt: string;
+  inlineSvg?: boolean;
   resetKey?: number;
 };
 
-export function FloorPlanViewer({ imageUrl, alt, resetKey = 0 }: FloorPlanViewerProps) {
+export function FloorPlanViewer({
+  imageUrl,
+  alt,
+  inlineSvg = false,
+  resetKey = 0,
+}: FloorPlanViewerProps) {
   const { transform, onTouchStart, onTouchMove, onTouchEnd } = usePinchZoom(`${imageUrl}:${resetKey}`);
 
   return (
@@ -26,12 +32,16 @@ export function FloorPlanViewer({ imageUrl, alt, resetKey = 0 }: FloorPlanViewer
             transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
           }}
         >
-          <InlineSvgPlan
-            url={imageUrl}
-            alt={alt}
-            className={styles.planSvg}
-            fallbackClassName={styles.image}
-          />
+          {inlineSvg ? (
+            <InlineSvgPlan
+              url={imageUrl}
+              alt={alt}
+              className={styles.planSvg}
+              fallbackClassName={styles.image}
+            />
+          ) : (
+            <img className={styles.image} src={imageUrl} alt={alt} draggable={false} />
+          )}
         </div>
       </div>
     </section>
