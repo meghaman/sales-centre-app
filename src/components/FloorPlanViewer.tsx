@@ -1,4 +1,5 @@
 import { usePinchZoom } from '../hooks/usePinchZoom';
+import { InlineSvgPlan } from './InlineSvgPlan';
 import styles from './FloorPlanViewer.module.css';
 
 type FloorPlanViewerProps = {
@@ -25,7 +26,12 @@ export function FloorPlanViewer({ imageUrl, alt, resetKey = 0 }: FloorPlanViewer
             transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
           }}
         >
-          <img className={styles.image} src={imageUrl} alt={alt} draggable={false} />
+          <InlineSvgPlan
+            url={imageUrl}
+            alt={alt}
+            className={styles.planSvg}
+            fallbackClassName={styles.image}
+          />
         </div>
       </div>
     </section>

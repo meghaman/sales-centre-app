@@ -56,7 +56,7 @@ export const ardenModel = {
       {
         id: 'r2-upper',
         label: 'Upper Level',
-        imageUrl: 'https://placehold.co/900x700?text=Upper+Level',
+        imageUrl: '/plans/arden/unit-2-upper-level.svg',
       },
       {
         id: 'r2-bedroom',
