@@ -24,6 +24,12 @@ export const ardenModel = {
           imageUrl: '/plans/arden/unit-1-upper-level.svg',
           inlineSvg: false,
         },
+        {
+          id: 'r1-new',
+          label: 'Simplified, Bolded Font',
+          imageUrl: '/plans/arden/unit-1-upper-new.svg',
+          inlineSvg: true,
+        },
       ],
     },
     {
